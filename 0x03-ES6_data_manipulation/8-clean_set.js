@@ -1,18 +1,16 @@
 /* eslint-disable */
 
-function cleanSet(set, startString) {
-    let result = '';
-    for (const value of set) {
-        if (value.startsWith(startString)) {
-            result += value.slice(startString.length) + '-';
-        }
+const cleanSet = (set, startString) => {
+  if (startString === '' || typeof startString !== 'string') return '';
+
+  const strings = [];
+  set.forEach((s) => {
+    if (typeof s === 'string' && s.startsWith(startString)) {
+      strings.push(s.slice(startString.length));
     }
-    // Removing the trailing '-' if any
-    if (result.endsWith('-')) {
-        result = result.slice(0, -1);
-    }
-    return result;
-}
+  });
+  return strings.join('-');
+};
 
 export default cleanSet;
 
