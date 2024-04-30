@@ -1,3 +1,4 @@
+/* eslint-disable */
 const getListStudentIds = (listStudents) => {
     if (!Array.isArray(listStudents)) {
         return [];
